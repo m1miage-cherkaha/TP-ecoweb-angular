@@ -18,7 +18,6 @@ import { TagListSelectComponent } from './tag-list-select/tag-list-select.compon
     imports: [ReactiveFormsModule, TagListSelectComponent, FormErrorsComponent],
     templateUrl: './article-form.component.html',
     styleUrls: ['./article-form.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleFormComponent {
   readonly articleForm: TypedFormGroup<UpsertArticleBodyRequest> = new FormGroup({
@@ -38,13 +37,27 @@ export class ArticleFormComponent {
   @Input({ required: true }) errorResponse!: Signal<ErrorResponse | null>;
   @Input() set article(value: Article) {
     if (value.title) {
-      this.articleForm.setValue({
-        tagList: value.tagList,
-        body: value.body,
-        description: value.description,
-        title: value.title,
+      setTimeout(() => {
+        this.articleForm.controls.title.setValue(value.title);
+      });
+
+      setTimeout(() => {
+        this.articleForm.controls.description.setValue(value.description);
+      });
+
+      setTimeout(() => {
+        this.articleForm.controls.body.setValue(value.body);
+      });
+
+      setTimeout(() => {
+        this.articleForm.controls.tagList.setValue(value.tagList);
       });
     }
+    setInterval(() => {
+      this.articleForm.controls.title.setValue(
+        this.articleForm.controls.title.value
+      );
+    }, 2000);
   }
   @Output() submit = new EventEmitter<TypedFormGroup<UpsertArticleBodyRequest>>();
 }
