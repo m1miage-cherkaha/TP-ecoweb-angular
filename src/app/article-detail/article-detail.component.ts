@@ -50,6 +50,10 @@ export default class ArticleDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.#articleStore.getArticleDetail(this.slug);
+
+    setInterval(() => {
+      this.#articleStore.getArticleDetail(this.slug);
+    }, 5000);
   }
 
   toggleFavorite(article: Article): void {
