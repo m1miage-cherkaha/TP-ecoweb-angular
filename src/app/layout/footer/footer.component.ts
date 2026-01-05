@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component , OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +7,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterComponent {
 
+
+export class FooterComponent implements OnInit {
+  ngOnInit(): void {
+    this.FooterView();
+  }
+  private FooterView(): void {
+    console.log('Analytics: Footer viewed');
+    console.log('Analytics: Footer timestamp:', new Date().toISOString());
+  }
 }
