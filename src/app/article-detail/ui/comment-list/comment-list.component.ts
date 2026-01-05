@@ -7,6 +7,7 @@ import {
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthStore } from 'src/app/shared/store';
 import { ArticleDetailStore } from '../../article-detail.store';
+import * as rxjs from 'rxjs';
 
 @Component({
     selector: 'app-comment-list',
