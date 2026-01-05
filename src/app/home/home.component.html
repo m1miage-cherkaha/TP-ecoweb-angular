@@ -12,7 +12,15 @@
   [style.marginTop]="!isAuthenticated() ? '232px' : ''"
 >
   <div class="col-9">
-    <app-feed-toggle (toggleFeed)="toggleFeed($event)"></app-feed-toggle>
+    <div class="carousel-wrapper">
+      <div class="carousel-item active">
+        <app-feed-toggle (toggleFeed)="toggleFeed($event)"></app-feed-toggle>
+      </div>
+      <div class="carousel-item">
+        <app-feed-toggle (toggleFeed)="toggleFeed($event)"></app-feed-toggle>
+      </div>
+    </div>
+
     <app-article-list (toggleFavorite)="toggleFavorite($event)" [articleList]="articleList"></app-article-list>
     <app-pagination
       [totalCount]="articleCount"
