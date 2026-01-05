@@ -5,6 +5,7 @@
       placeholder="Write a comment..."
       rows="3"
       [(ngModel)]="comment"
+      (ngModelChange)="onTyping()"
     ></textarea>
   </div>
   <div class="card-footer">

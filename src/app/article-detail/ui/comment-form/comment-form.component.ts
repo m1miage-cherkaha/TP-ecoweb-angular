@@ -22,6 +22,11 @@ export class CommentFormComponent {
   readonly #articleDetailStore = inject(ArticleDetailStore);
   readonly avatar = inject(AuthStore).selectors.user()?.image;
   comment!: string;
+
+  onTyping() {
+    const el = document.querySelector('textarea')!;
+    el.style.height = el.scrollHeight + 'px';
+  }
   submit(): void {
     this.#articleDetailStore.createComment({
       slug: this.slug,
