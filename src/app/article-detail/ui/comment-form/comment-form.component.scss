@@ -13,7 +13,8 @@
     border-top: 1px solid var(--extra-white-gray-color);
     padding: 0.75rem 1.25rem;
     background-color: var(--white-gray-color);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     .avatar {
       height: 30px;
       width: 30px;
